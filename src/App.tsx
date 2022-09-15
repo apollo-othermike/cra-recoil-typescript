@@ -1,24 +1,17 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useRecoilValue } from "recoil";
+import { testAtomState, restEndpointState, validatorsQuery } from "./data";
 
 function App() {
+  const stateTest = useRecoilValue(testAtomState);
+  const restEndpoint = useRecoilValue(restEndpointState);
+  const validators = useRecoilValue(validatorsQuery);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Hello World</h1>
+      <div>test: {stateTest}</div>
+      <div>rest endpoint: {restEndpoint}</div>
+      <div>validators: {JSON.stringify(validators)}</div>
     </div>
   );
 }
